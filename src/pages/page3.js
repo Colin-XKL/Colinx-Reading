@@ -1,17 +1,16 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 
 function func(node) {
   if (node.has_image) {
-    return <img src={node.img.src} class="card-img-top" alt={node.title} />
+    return <img src={node.image.src} class="card-img-top" alt="..." />
   } else {
-    return null
+    return ""
   }
 }
-
 export default ({ data }) => {
-  console.log(data)
+  //   console.log(data)
   return (
     <Layout>
       <div>
@@ -21,10 +20,11 @@ export default ({ data }) => {
             <div class="card mb-3" key={index}>
               <div class="card-body">
                 <h3 class="card-title">
-                  <a href={node.url} color="teal">
+                  <Link to={node.url} color="teal">
                     {node.title}
-                  </a>
+                  </Link>
                 </h3>
+                {func(node)}
                 <p class="card-text">{node.excerpt}</p>
                 <p class="card-text">
                   <small class="text-muted">
@@ -43,7 +43,7 @@ export default ({ data }) => {
 
 export const query = graphql`
   query PageQuery {
-    allPocketArticle(sort: { fields: id }) {
+    allPocketArticle(sort: { fields: readDay }) {
       edges {
         node {
           id
