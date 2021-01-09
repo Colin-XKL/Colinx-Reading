@@ -1,41 +1,46 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import Layout from "../components/layout"
 
-function func(node) {
-  if (node.has_image) {
-    return <img src={node.image.src} class="card-img-top" alt="..." />
-  } else {
-    return ""
-  }
-}
 export default ({ data }) => {
-  //   console.log(data)
+  let handleImgError = e => {
+    e.target.style.display = "none"
+  }
   return (
     <Layout>
       <div>
         <h1>My readings</h1>
-        <container>
+        <div className="container">
           {data.allPocketArticle.edges.map(({ node }, index) => (
-            <div class="card mb-3" key={index}>
-              <div class="card-body">
-                <h3 class="card-title">
-                  <Link to={node.url} color="teal">
-                    {node.title}
-                  </Link>
-                </h3>
-                {func(node)}
-                <p class="card-text">{node.excerpt}</p>
-                <p class="card-text">
-                  <small class="text-muted">
-                    Total {node.word_count} words from{" "}
-                    <u>{node.articleDomain}</u>
-                  </small>
-                </p>
-              </div>
+            <div key={index}>
+              {node.url && node.title && (
+                <div className="card mb-3">
+                  <div className="card-body">
+                    <h3 className="card-title">
+                      <a href={node.url} color="teal">
+                        {node.title}
+                      </a>
+                    </h3>
+                    {node.has_image && (
+                      <img
+                        src={node.image.src}
+                        onError={handleImgError}
+                        alt={node.title}
+                      />
+                    )}
+                    <p className="card-text">{node.excerpt}</p>
+                    <p className="card-text">
+                      <small className="text-muted">
+                        Total {node.word_count} words from{" "}
+                        <u>{node.articleDomain}</u>
+                      </small>
+                    </p>
+                  </div>
+                </div>
+              )}
             </div>
           ))}
-        </container>
+        </div>
       </div>
     </Layout>
   )
