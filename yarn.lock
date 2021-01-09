@@ -6076,9 +6076,9 @@ gatsby-plugin-manifest@^2.6.1:
     semver "^7.3.2"
     sharp "^0.27.0"
 
-gatsby-plugin-offline@^3.4.0:
+gatsby-plugin-offline@^3.8.0:
   version "3.8.0"
-  resolved "http://mirrors.cloud.tencent.com/npm/gatsby-plugin-offline/-/gatsby-plugin-offline-3.8.0.tgz#4cc1e4b24921aedc456248b4b425e073e4e866eb"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-offline/-/gatsby-plugin-offline-3.8.0.tgz#4cc1e4b24921aedc456248b4b425e073e4e866eb"
   integrity sha512-kSNZ07XETuy1vMsLJ3yXt2tfDYyuKTW0ij+9sRbmIO5VMhgKGx6XzPBJMaU2pH7kjWi0X29zOmofGORYFgC9Xg==
   dependencies:
     "@babel/runtime" "^7.12.5"
