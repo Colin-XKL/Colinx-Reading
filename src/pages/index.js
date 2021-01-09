@@ -48,7 +48,10 @@ export default ({ data }) => {
 
 export const query = graphql`
   query PageQuery {
-    allPocketArticle(sort: { fields: readDay }) {
+    allPocketArticle(
+      filter: { is_article: { eq: true } }
+      sort: { fields: id, order: DESC }
+    ) {
       edges {
         node {
           id
@@ -61,7 +64,7 @@ export const query = graphql`
           has_video
           has_image
           word_count
-          time_read
+          time_added
           readDay
           readWeek
           articleDomain
