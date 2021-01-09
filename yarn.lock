@@ -6110,9 +6110,9 @@ gatsby-plugin-react-helmet@^3.4.0:
   dependencies:
     "@babel/runtime" "^7.12.5"
 
-gatsby-plugin-sharp@^2.8.0:
+gatsby-plugin-sharp@^2.12.0:
   version "2.12.0"
-  resolved "http://mirrors.cloud.tencent.com/npm/gatsby-plugin-sharp/-/gatsby-plugin-sharp-2.12.0.tgz#3668f03e96fb024459939859f022a755fea91b8d"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-sharp/-/gatsby-plugin-sharp-2.12.0.tgz#3668f03e96fb024459939859f022a755fea91b8d"
   integrity sha512-I9O9tPWT5noEhOJnqEeaQ4E9rfKSIKH+cN+xvmJcRPJP4HKcXQqs1NH/tbhKrNvuNyIQK+f8xGiXKeFVvQDcUA==
   dependencies:
     "@babel/runtime" "^7.12.5"
