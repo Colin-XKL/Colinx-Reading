@@ -6034,16 +6034,16 @@ gatsby-page-utils@^0.9.1:
     lodash "^4.17.20"
     micromatch "^4.0.2"
 
-gatsby-plugin-feed@^2.11.0:
-  version "2.11.0"
-  resolved "http://mirrors.cloud.tencent.com/npm/gatsby-plugin-feed/-/gatsby-plugin-feed-2.11.0.tgz#97b93a8caeec3ee4f65155aea2f7c0cfe7acb06e"
-  integrity sha512-VRHMMqyUg3mgRLypdsXtHrpWnapp+LT1c0CpDgLVbhMIs78/FPZKQQ1o/zF0TLsu/P8CLQInHKzcJSPxKMnfGQ==
+gatsby-plugin-feed@^2.13.1:
+  version "2.13.1"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-feed/-/gatsby-plugin-feed-2.13.1.tgz#06000ed99979efaeb2e3afc978c4ccbdaa11b6dc"
+  integrity sha512-/Zl4Sp+eRiMaH5QrOmckSbjvgsVYcuZhNgAi/GAPrdBYLBhsGAEdBsLxRDb6Lhi28gvqpjV8CYXV6kfePMZ7hg==
   dependencies:
     "@babel/runtime" "^7.12.5"
     "@hapi/joi" "^15.1.1"
     common-tags "^1.8.0"
-    fs-extra "^8.1.0"
-    gatsby-plugin-utils "^0.7.0"
+    fs-extra "^9.1.0"
+    gatsby-plugin-utils "^0.9.0"
     lodash.merge "^4.6.2"
     rss "^1.2.2"
 
