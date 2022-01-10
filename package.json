@@ -13,7 +13,7 @@
     "gatsby-plugin-react-helmet": "^3.4.0",
     "gatsby-plugin-sharp": "^2.8.0",
     "gatsby-source-filesystem": "^3.5.0",
-    "gatsby-source-pocket": "^2.3.0",
+    "gatsby-source-pocket": "^3.0.1",
     "gatsby-transformer-sharp": "^2.12.1",
     "mozjpeg": "^7.1.0",
     "prop-types": "^15.7.2",
@@ -22,7 +22,7 @@
     "react-helmet": "^6.1.0"
   },
   "devDependencies": {
-    "prettier": "2.3.2"
+    "prettier": "2.5.1"
   },
   "keywords": [
     "gatsby"
