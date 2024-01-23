@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "author": "Colin <Colin_XKL@outlook.com>",
   "dependencies": {
-    "gatsby": "^3.13.0",
+    "gatsby": "^5.13.2",
     "gatsby-image": "^3.4.0",
     "gatsby-plugin-feed": "^4.24.0",
     "gatsby-plugin-manifest": "^3.13.0",
