@@ -1,99 +1,171 @@
-<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
-<p align="center">
-  <a href="https://www.gatsbyjs.com">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby's default starter
-</h1>
+# Colinx-Reading
 
-Kick off your project with this default boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Wiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/Colin-XKL/Colinx-Reading)
 
-_Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.com/docs/gatsby-starters/)._
+The **Colinx-Reading** repository implements a personal reading dashboard that transforms a user's Pocket reading list into a beautifully presented static website with Progressive Web App (PWA) capabilities. This Gatsby-based application fetches articles from the Pocket API during build time and generates a curated, offline-accessible reading interface.
 
-## 🚀 Quick start
+Colinx-Reading 是一个个人阅读仪表盘项目，将用户的 Pocket 阅读列表转换为一个美观的静态网站，并支持渐进式网页应用（PWA）功能。该项目基于 Gatsby 构建，在构建时从 Pocket API 获取文章数据，并生成一个可离线访问的阅读界面。
 
-1.  **Create a Gatsby site.**
+项目开发背景及介绍 [JAMStack 初体验 - 基于 Pocket 和 Gatsby 构建你的「网络日志」](https://blog.colinx.one/posts/jamstack%E5%88%9D%E4%BD%93%E9%AA%8C-%E5%9F%BA%E4%BA%8Epocket-%E5%92%8C-gatsby-%E6%9E%84%E5%BB%BA%E4%BD%A0%E7%9A%84%E7%BD%91%E7%BB%9C%E6%97%A5%E5%BF%97/)
 
-    Use the Gatsby CLI to create a new site, specifying the default starter.
+> **Note**:
+> 
+> Due to the discontinuation of Pocket, this project has been archived.  
+> 由于 Pocket 即将关停服务, 本项目已经归档.
 
-    ```shell
-    # create a new Gatsby site using the default starter
-    gatsby new my-default-starter https://github.com/gatsbyjs/gatsby-starter-default
-    ```
+## Features
 
-1.  **Start developing.**
+- **Pocket Integration**: Fetches articles from your Pocket account using the Pocket API.
+- **Static Website**: Generates a static website using Gatsby, ensuring fast load times and offline accessibility.
+- **Progressive Web App (PWA)**: Provides PWA capabilities, including a service worker for offline access and a manifest file for installation.
+- **Responsive Design**: Displays articles in a responsive, card-based layout with optional images.
+- **Image Handling**: Includes a fallback mechanism to handle broken images gracefully.
+- **Customizable**: Easily configure the number of articles fetched, filtering options, and more.
 
-    Navigate into your new site’s directory and start it up.
+## System Architecture
 
-    ```shell
-    cd my-default-starter/
-    gatsby develop
-    ```
+The application follows a **JAMstack** architecture pattern, where content is fetched at build time and served as static files:
 
-1.  **Open the source code and start editing!**
+- **Build Time Process**: Articles are fetched from the Pocket API using the `gatsby-source-pocket` plugin during the build process.
+- **Data Layer**: Data is queried using GraphQL and processed by Gatsby.
+- **Static Output**: The build process generates static HTML, CSS, and JavaScript files, along with a PWA manifest and service worker for offline access.
 
-    Your site is now running at `http://localhost:8000`!
 
-    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.com/tutorial/part-five/#introducing-graphiql)._
 
-    Open the `my-default-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
+## Core Functionality
 
-## 🧐 What's inside?
+The application implements a reading list interface that displays articles fetched from a user's Pocket account. The main functionality centers around the `index.js` page component, which:
 
-A quick look at the top-level files and directories you'll see in a Gatsby project.
+1. **Queries Article Data**: Uses GraphQL to fetch articles from the Pocket API, filtering for articles (`is_article: true`) and sorting by ID in descending order.
+2. **Renders Article Cards**: Displays article cards with title, excerpt, word count, domain information, and optional images.
+3. **Handles Image Errors**: Provides a fallback mechanism to hide broken images.
+4. **Direct Links**: Includes direct links to the original articles for reading.
 
-    .
-    ├── node_modules
-    ├── src
-    ├── .gitignore
-    ├── .prettierrc
-    ├── gatsby-browser.js
-    ├── gatsby-config.js
-    ├── gatsby-node.js
-    ├── gatsby-ssr.js
-    ├── LICENSE
-    ├── package-lock.json
-    ├── package.json
-    └── README.md
+## Key Technologies and Dependencies
 
-1.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
+- **Core Framework**: [Gatsby v3](https://www.gatsbyjs.com/)
+- **Data Source**: [Pocket API](https://getpocket.com/developer/)
+- **PWA Features**: Gatsby plugins for PWA support
+- **Image Processing**: Gatsby image plugins
+- **Dependency Management**: [Yarn](https://yarnpkg.com/) with lockfile-based reproducible builds
 
-2.  **`/src`**: This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser) such as your site header or a page template. `src` is a convention for “source code”.
+## Development Background
 
-3.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
+### Why JAMStack?
 
-4.  **`.prettierrc`**: This is a configuration file for [Prettier](https://prettier.io/). Prettier is a tool to help keep the formatting of your code consistent.
+JAMStack stands for **JavaScript, APIs, and Markup**. It is a modern web development architecture that emphasizes:
 
-5.  **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.com/docs/browser-apis/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
+- **Performance**: Static pages with low Time To First Byte (TTFB).
+- **Security**: Reduced server-side risks due to static content.
+- **SEO**: Better search engine optimization compared to client-side rendering.
+- **Dynamic Content**: Easy updates and modifications.
 
-6.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.com/docs/gatsby-config/) for more detail).
+### Why Gatsby?
 
-7.  **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.com/docs/node-apis/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
+Gatsby is a powerful static site generator that offers:
 
-8.  **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.com/docs/ssr-apis/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
+- **Flexibility**: High customization with JavaScript (or TypeScript).
+- **React Ecosystem**: Rich React-based plugins and components.
+- **GraphQL Integration**: Efficient data querying and management.
 
-9.  **`LICENSE`**: This Gatsby starter is licensed under the 0BSD license. This means that you can see this file as a placeholder and replace it with your own license.
+### Workflow
 
-10. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
+1. **Collect Articles**: Save interesting articles to Pocket.
+2. **Fetch Data**: Use a scheduled task to fetch articles from the Pocket API.
+3. **Generate Site**: Use Gatsby to generate the static site.
+4. **Deploy**: Automatically deploy the static files to a CDN.
 
-11. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
 
-12. **`README.md`**: A text file containing useful reference information about your project.
+## License
 
-## 🎓 Learning Gatsby
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-Looking for more guidance? Full documentation for Gatsby lives [on the website](https://www.gatsbyjs.com/). Here are some places to start:
+## Acknowledgments
 
-- **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.com/tutorial/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
+- [Gatsby](https://www.gatsbyjs.com/) for the static site generator.
+- [Pocket](https://getpocket.com/) for the API and reading list service.
+- [Yarn](https://yarnpkg.com/) for dependency management.
 
-- **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.com/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.
 
-## 💫 Deploy
+---
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
+# Colinx-Reading
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/gatsbyjs/gatsby-starter-default)
 
-<!-- AUTO-GENERATED-CONTENT:END -->
+**Colinx-Reading** 是一个个人阅读仪表盘项目，它将用户的 Pocket 阅读列表转换为一个美观的静态网站，并支持渐进式网页应用（PWA）功能。该项目基于 Gatsby 构建，在构建时从 Pocket API 获取文章数据，并生成一个可离线访问的阅读界面。
+
+## 功能特点
+
+- **Pocket 集成**：通过 Pocket API 从你的 Pocket 账户获取文章。
+- **静态网站**：使用 Gatsby 生成静态网站，确保快速加载和离线访问。
+- **渐进式网页应用（PWA）**：支持 PWA 功能，包括服务工作者（Service Worker）和安装清单（Manifest）。
+- **响应式设计**：以卡片形式展示文章，支持响应式布局和可选图片。
+- **图片处理**：提供图片加载错误的回退机制。
+- **高度可定制**：可配置获取文章的数量、过滤选项等。
+
+## 系统架构
+
+该项目采用 **JAMstack** 架构，内容在构建时获取并以静态文件形式提供：
+
+- **构建过程**：通过 `gatsby-source-pocket` 插件从 Pocket API 获取文章数据。
+- **数据层**：使用 GraphQL 查询数据，并由 Gatsby 处理。
+- **静态输出**：构建过程生成静态 HTML、CSS 和 JavaScript 文件，同时生成 PWA 清单和服务工作者以实现离线访问。
+
+
+## 核心功能
+
+该应用实现了一个阅读列表界面，展示从 Pocket 账户获取的文章。核心功能集中在 `index.js` 页面组件中，具体包括：
+
+1. **查询文章数据**：使用 GraphQL 从 Pocket API 获取文章，过滤文章（`is_article: true`）并按 ID 降序排序。
+2. **渲染文章卡片**：展示文章卡片，包括标题、摘要、字数、域名信息和可选图片。
+3. **处理图片错误**：提供图片加载错误的回退机制。
+4. **直接链接**：提供文章原文的直接链接。
+
+
+## 关键技术及依赖
+
+- **核心框架**：[Gatsby v3](https://www.gatsbyjs.com/)
+- **数据源**：[Pocket API](https://getpocket.com/developer/)
+- **PWA 功能**：Gatsby PWA 插件
+- **图片处理**：Gatsby 图片插件
+- **依赖管理**：[Yarn](https://yarnpkg.com/) 基于锁文件的依赖管理
+
+## 开发背景
+
+### 为什么选择 JAMstack？
+
+JAMstack 代表 **JavaScript、API 和 Markup**，是一种现代 Web 开发架构，具有以下优势：
+
+- **性能**：静态页面，首次字节时间（TTFB）极低。
+- **安全性**：静态内容减少了服务器端的安全风险。
+- **SEO**：相比客户端渲染，对搜索引擎更友好。
+- **动态内容**：方便更新和修改。
+
+### 为什么选择 Gatsby？
+
+Gatsby 是一个强大的静态网站生成器，具有以下特点：
+
+- **灵活性**：使用 JavaScript（或 TypeScript）实现高度定制。
+- **React 生态**：丰富的 React 插件和组件。
+- **GraphQL 集成**：高效的数据查询和管理。
+
+### 工作流程
+
+1. **收集文章**：将感兴趣的文章保存到 Pocket。
+2. **获取数据**：通过定时任务从 Pocket API 获取文章数据。
+3. **生成网站**：使用 Gatsby 生成静态网站。
+4. **部署**：将静态文件自动部署到 CDN。
+
+
+
+## 许可证
+
+本项目采用 MIT 许可证，详情请参阅 [LICENSE](LICENSE) 文件。
+
+## 致谢
+
+- [Gatsby](https://www.gatsbyjs.com/) 提供静态网站生成器。
+- [Pocket](https://getpocket.com/) 提供 API 和阅读列表服务。
+- [Yarn](https://yarnpkg.com/) 提供依赖管理工具。
+
